@@ -10,7 +10,7 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
  *项目启动类
  */
 @SpringBootApplication
-@EnableRedisHttpSession //启用分布式session共享
+//@EnableRedisHttpSession //启用分布式session共享
 public class App
 {
     public static void main(String[] args) throws Exception

@@ -43,12 +43,12 @@
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
     <!-- redis -->
-    <!--
+<!--
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-redis</artifactId>
     </dependency>
-     -->
+    -->
     <dependency>
       <groupId>org.springframework.data</groupId>
       <artifactId>spring-data-redis</artifactId>
@@ -111,8 +111,8 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
-          <source>1.7</source>
-          <target>1.7</target>
+          <source>1.8</source>
+          <target>1.8</target>
         </configuration>
       </plugin>
       <!-- <plugin> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-maven-plugin</artifactId>
@@ -128,7 +128,7 @@
             <!-- 添加index则不从mainfest中读取classpath，而是从Index.list中读取 -->
             <!-- <index>true</index> -->
             <manifest>
-              <mainClass>com.yc.redis.App</mainClass>
+              <mainClass>com.yc.App</mainClass>
               <!-- to create a class path to your dependecies you have to fill true
                   in this field -->
               <addClasspath>true</addClasspath>

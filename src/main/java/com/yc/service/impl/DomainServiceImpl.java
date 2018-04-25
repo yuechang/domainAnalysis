@@ -52,49 +52,22 @@ public class DomainServiceImpl implements DomainService {
     public void beginCheckDomain() throws Exception {
 
         List<Callable<Long>> callableList = new ArrayList<>();
-        Callable<Long> thread1 = new Callable<Long>() {
-
-            @Override
-            public Long call() throws Exception {
-                checkDomain(Constants.LETTERS_AND_NUMBERS_PART1);
-                return 1L;
-            }
-        };
-
-        Callable<Long> thread2 = new Callable<Long>() {
-
-            @Override
-            public Long call() throws Exception {
-                checkDomain(Constants.LETTERS_AND_NUMBERS_PART2);
-                return 2L;
-            }
-        };
-
-        Callable<Long> thread3 = new Callable<Long>() {
-
-            @Override
-            public Long call() throws Exception {
-                checkDomain(Constants.LETTERS_AND_NUMBERS_PART3);
-                return 3L;
-            }
-        };
-
-        Callable<Long> thread4 = new Callable<Long>() {
-
-            @Override
-            public Long call() throws Exception {
-                checkDomain(Constants.LETTERS_AND_NUMBERS_PART4);
-                return 4L;
-            }
-        };
-
-        callableList.add(thread1);
-        callableList.add(thread2);
-        callableList.add(thread3);
-        callableList.add(thread4);
+        for (int i = 0; i < Constants.LETTERS.length; i++){
+            String letter = Constants.LETTERS[i];
+            final long number = i;
+            Callable<Long> thread = new Callable<Long>() {
+                @Override
+                public Long call() throws Exception {
+                    String[] letterArray = new String[1];
+                    letterArray[0] = letter;
+                    checkDomain(letterArray);
+                    return number;
+                }
+            };
+            callableList.add(thread);
+        }
 
         List<Future<Long>> futureList = newCachedThreadPool.invokeAll(callableList);
-
         for (Future<Long> future : futureList) {
             Long result = future.get();
             System.out.println(result);
@@ -111,10 +84,10 @@ public class DomainServiceImpl implements DomainService {
      */
     private void checkDomain(String[] domainArrange) throws Exception {
         for (String first : domainArrange) {
-            for (String second : Constants.LETTERS_AND_NUMBERS) {
-                for (String thrid : Constants.LETTERS_AND_NUMBERS) {
-                    for (String fourth : Constants.LETTERS_AND_NUMBERS) {
-                        for(String fifth : Constants.LETTERS_AND_NUMBERS) {
+            for (String second : Constants.LETTERS) {
+                for (String thrid : Constants.LETTERS) {
+                    for (String fourth : Constants.LETTERS) {
+                        for(String fifth : Constants.LETTERS) {
                             for (String tid : Constants.DOMAIN_TID) {
                                 String domain = MessageFormat.format("{0}{1}{2}{3}{4}.{5}", first,second,thrid,fourth,fifth,tid);
                                 doCheckDomain(domain);
@@ -147,7 +120,7 @@ public class DomainServiceImpl implements DomainService {
         params.put(Constants.TOKEN_KEY, "Y".concat(MD5Util.getMD5(domain)));
         params.put(Constants.DOMAIN_KEY, domain);
 
-        String resultJson = HttpUtil.doGet(Constants.CHECK_DOMAIN_URL, params, Constants.DEFAULT_CHARSET);
+        String resultJson = HttpUtil.doGetWithProxy(Constants.CHECK_DOMAIN_URL, params, Constants.DEFAULT_CHARSET);
         if(StringUtils.isBlank(resultJson)) {
             return;
         }
