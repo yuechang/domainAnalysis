@@ -14,7 +14,7 @@ import org.springframework.context.event.ContextRefreshedEvent;
 /**
  * @author Yue Chang
  * @ClassName: ApplicationStartup
- * @Description: TODO
+ * @Description: 检查域名监听器
  * @date 2018/4/23 21:27
  */
 public class ApplicationStartup implements ApplicationListener<ContextRefreshedEvent>
@@ -26,7 +26,6 @@ public class ApplicationStartup implements ApplicationListener<ContextRefreshedE
         try {
             ApplicationContext applicationContext = event.getApplicationContext();
             DomainService domainService = (DomainService)applicationContext.getBean("domainServiceImpl");
-            System.out.println(domainService);
             domainService.beginCheckDomain();
         } catch (Exception e) {
             logger.info("检查域名是否可以出现异常", e);
