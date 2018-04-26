@@ -26,6 +26,7 @@ public class ApplicationStartup implements ApplicationListener<ContextRefreshedE
         try {
             ApplicationContext applicationContext = event.getApplicationContext();
             DomainService domainService = (DomainService)applicationContext.getBean("domainServiceImpl");
+
             domainService.beginCheckDomain();
         } catch (Exception e) {
             logger.info("检查域名是否可以出现异常", e);
