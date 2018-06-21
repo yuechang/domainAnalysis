@@ -35,7 +35,6 @@ public class VisitTimeAspect {
     public void doBefore() throws Throwable {
         // 设置开始访问时间
         threadLocal.set(System.currentTimeMillis());
-
     }
 
     @After(value = "visitTimePointcut()")
