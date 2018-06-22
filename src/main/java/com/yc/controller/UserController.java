@@ -1,3 +1,28 @@
+/*
+ * Copyright (c) 2018, 2025, Yue Chang and/or its affiliates. All rights reserved.
+ * Yue Chang PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+
 package com.yc.controller;
 
 import com.yc.aop.UserEntityAspect;
@@ -7,6 +32,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * @author Yue Chang
+ * @version 1.0
+ * @className: UserEntityAspect
+ * @description: 用户控制器类
+ * @date 2018年06月21日 19:27
+ */
 @RestController
 public class UserController {
 

@@ -1,7 +1,39 @@
+/*
+ * Copyright (c) 2018, 2025, Yue Chang and/or its affiliates. All rights reserved.
+ * Yue Chang PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+
 package com.yc.entity;
 
 import java.io.Serializable;
 
+/**
+ * @author Yue Chang
+ * @version 1.0
+ * @className: UserEntityAspect
+ * @description: 用户实体类
+ * @date 2018年06月21日 19:27
+ */
 public class UserEntity implements Serializable {
 
     private long id;

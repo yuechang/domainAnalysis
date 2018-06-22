@@ -1,3 +1,28 @@
+/*
+ * Copyright (c) 2018, 2025, Yue Chang and/or its affiliates. All rights reserved.
+ * Yue Chang PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+
 package com.yc.aop;
 
 import com.yc.controller.UserController;
@@ -13,6 +38,13 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * @author Yue Chang
+ * @version 1.0
+ * @className: UserEntityAspect
+ * @description: 用户信息设置切面类
+ * @date 2018年06月21日 19:27
+ */
 @Aspect
 @Component
 public class UserEntityAspect {
